@@ -1,0 +1,8 @@
+**/.DS_Store
+.svn
+binaries
+downloads
+work
+jenkins_wrapper*
+deployment
+*.war
