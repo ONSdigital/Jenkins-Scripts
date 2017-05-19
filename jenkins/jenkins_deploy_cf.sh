@@ -306,7 +306,7 @@ rm -rf jenkins_home jenkins_scripts
 sed </dev/null 2>&1 | grep -q GNU && SED_OPT='-r' || SED_OPT='-E'
 
 # Suck in the SSH keys for our Git repos
-for i in "$JENKINS_CONFIG_REPO" "$JENKINS_CONFIG_SEED_REPO" "$JENKINS_SCRIPTS_REPO"; do
+for i in $JENKINS_CONFIG_REPO $JENKINS_CONFIG_SEED_REPO $JENKINS_SCRIPTS_REPO; do
 	# We only want to scan a host if we are connecting via SSH
 	echo $i | grep -Eq '^((https?|file|git)://|~?/)' && continue
 
@@ -331,7 +331,7 @@ else
 
 	[ -z "$KEY_NAME" ] && FATAL Unable to determine ssh key type
 
-	mv "$ORIGINAL_DIR/$SSH_PRIVATE_KEY" $KEY_NAME
+	cp "$ORIGINAL_DIR/$SSH_PRIVATE_KEY" $KEY_NAME
 
 
 	# Ensure our key has the correct permissions, otherwise ssh-keygen fails
