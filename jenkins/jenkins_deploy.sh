@@ -171,7 +171,7 @@ INFO Creating required directories
 INFO "Attempting to add SSH keys to $DEPLOYMENT_DIR/.ssh/known_hosts & ~/.ssh/known_hosts"
 for i in $JENKINS_CONFIG_REPO $JENKINS_SCRIPTS_REPO; do
 	# We only want to scan a host if we are connecting via SSH
-	echo $i | grep -Eq '^(.*@)?[[:alnum:].-]+:' || continue
+	echo $i | grep -Eq '^((https?|file|git)://|~?/)' && continue
 
 	# Silence ssh-keyscan
 	echo $i | sed -re 's,^[a-z]+://([^@]+@)([a-z0-9\.-]+)([:/].*)?$,\2,g' | \
