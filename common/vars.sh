@@ -28,8 +28,8 @@ case `uname -s` in
 		;;
 esac
 
-export JENKINS_CONFIG_SEED_REPO="${JENKINS_CONFIG_SEED_REPO:-ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/Jenkins-Seed-Config}"
-export JENKINS_SCRIPTS_REPO="${JENKINS_SCRIPTS_REPO:-ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/Jenkins-Scripts}"
+export JENKINS_CONFIG_SEED_REPO="${JENKINS_CONFIG_SEED_REPO:-https://github.com/ONSdigital/Jenkins-Seed-Config}"
+export JENKINS_SCRIPTS_REPO="${JENKINS_SCRIPTS_REPO:-https://github.com/ONSdigital/Jenkins-Scripts}"
 
 export JENKINS_BACKUP_USERNAME='backup_user'
 export JENKINS_BACKUP_PASSWORD="${JENKINS_BACKUP_PASSWORD:-backup_user}"
