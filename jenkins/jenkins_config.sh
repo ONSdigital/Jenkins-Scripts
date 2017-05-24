@@ -25,7 +25,7 @@ else
 	exit 1
 fi
 
-. $SCRIPTS_DIR/common/common.sh
+. "$SCRIPTS_DIR/common/common.sh"
 
 [ -z "$JENKINS_INSTANCE" ] && FATAL "Not enough parameters set: JENKINS_INSTANCE='$JENKINS_INSTANCE'"
 
