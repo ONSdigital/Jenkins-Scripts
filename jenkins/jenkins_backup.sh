@@ -61,7 +61,7 @@ fi
 
 ################
 # Vars
-if [ -n "$CF_INSTANCE_IP" -o ! -f /usr/share/tomcat/webapps/jenkins.war ]; then
+if [ -n "$CF_INSTANCE_IP" ]; then
 	# We are running under Cloudfoundry or running via Jetty (eg java -jar jenkins.war)
         JENKINS_CLI_JAR="${JENKINS_CLI_JAR:-$WEBAPP_HOME/WEB-INF/jenkins-cli.jar}"
 
