@@ -271,6 +271,7 @@ cat >"$DEPLOYMENT_DIR/config/$JENKINS_APPNAME.config" <<EOF
 export JENKINS_HOME="$DEPLOYMENT_DIR/jenkins_home"
 export SCRIPTS_DIR="$DEPLOYMENT_DIR/jenkins_scripts"
 export JENKINS_CLI_JAR="$DEPLOYMENT_DIR/bin/jenkins-cli.jar"
+export JENKINS_LOCATION="localhost:8080"
 EOF
 
 INFO "Checking if we need to set a proxy"
