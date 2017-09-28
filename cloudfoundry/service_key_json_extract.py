@@ -50,12 +50,9 @@ for credential_key in json_doc.keys():
 
 		key	= re.sub(search, replace, key)
 
-	# Urgh, give me Perl
-	json_check = re.compile('^[\{\[]')
-
 	# No simple way to check if a string is JSON or not
 	if re.search('^[\{\[]',json.dumps(json_doc[credential_key])):
-		# We may end up having more JSON, so we need to avoid print u'JSON_STRING'
+		# We may end up having more JSON, so we need to avoid printing u'JSON_STRING'
 		value	= json.dumps(json_doc[credential_key])
 	else:
 		value	= json_doc[credential_key]
