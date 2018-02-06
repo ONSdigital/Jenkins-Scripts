@@ -1,4 +1,4 @@
 To bootstrap the Jenkins instance deployer:
 
-$ ./jenkins/jenkins_deploy_cf.sh -n jenkins-deploy -m 2048M -d 2048M -C 'git@bitbucket.org:userix/jenkins_deploy.git' \
-	-u '$CF_ADMIN_USER' -s '$SPACE' -o '$ORGANISATION' -p '$CF_ADMIN_PASSWORD'" -a '$CF_API_ENDPOINT' -X
+$ ./jenkins/jenkins\_deploy\_cf.sh -n jenkins-deploy -m 2048M -d 2048M -C https://github.com/ONSdigital/Jenkins-Scripts \
+	-u '$CF\_ADMIN\_USER' -s '$SPACE' -o '$ORGANISATION' -p '$CF\_ADMIN\_PASSWORD'" -a '$CF\_API\_ENDPOINT' -X
