@@ -275,7 +275,7 @@ cd jenkins_home/plugins
 for p in ${PLUGINS:-$DEFAULT_PLUGINS}; do
 	INFO "Downloading $p"
 
-	curl -O "$p"
+	curl -LO "$p"
 done
 
 cd -
