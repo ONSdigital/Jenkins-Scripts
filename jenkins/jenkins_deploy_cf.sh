@@ -457,7 +457,7 @@ if [ x"$SUCCESS" = x"1" ]; then
 	INFO
 	INFO "You will need to add the following public key to ${JENKINS_CONFIG_NEW_REPO:-$JENKINS_CONFIG_SEED_REPO}"
 	INFO
-	cat "$SSH_PRIVATE_KEY"
+	cat "$SSH_PRIVATE_KEY.pub"
 	INFO
 	# If we can find the log line of the failed plugin we could add it to the above AWK section and present a warning to load
 	# a given plugin - as we run the plugin load three times, we'd need a little bit of logic there
