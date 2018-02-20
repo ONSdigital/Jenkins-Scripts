@@ -95,13 +95,13 @@ configure_git
 
 ################
 # Check if this is really an update
-if diff -q /dev/null plugin-list 2>&1 >/dev/null; then
+if diff -q /dev/null plugin-list.new 2>&1 >/dev/null; then
 	FATAL "A blank plugin-list has been generated, does the $JENKINS_BACKUP_USERNAME have the correct permissions?"
 fi
 
 if [ ! -f plugin-list ] || ! diff -q plugin-list plugin-list.new; then
 	INFO Plugins have changed
-	diff -u plugin-list plugin-list.new || :
+	[ -f plugin-list ] && diff -u plugin-list plugin-list.new
 
 	INFO Updating plugins list
 
