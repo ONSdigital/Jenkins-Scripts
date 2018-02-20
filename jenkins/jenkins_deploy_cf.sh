@@ -453,10 +453,13 @@ INFO
 if [ x"$SUCCESS" = x"1" ]; then
 	INFO "Jenkins may still be loading, so hold tight"
 	INFO
-	INFO "You will need to add the following public key to ${JENKINS_CONFIG_NEW_REPO:-$JENKINS_CONFIG_SEED_REPO}"
-	INFO
-	cat "$SSH_PRIVATE_KEY.pub"
-	INFO
+
+	if [ -f "$SSH_PRIVATE_KEY.pub" ]; then
+		INFO "You will need to add the following public key to ${JENKINS_CONFIG_NEW_REPO:-$JENKINS_CONFIG_SEED_REPO}"
+		INFO
+		cat "$SSH_PRIVATE_KEY.pub"
+		INFO
+	fi
 	# If we can find the log line of the failed plugin we could add it to the above AWK section and present a warning to load
 	# a given plugin - as we run the plugin load three times, we'd need a little bit of logic there
 	INFO "Even though Jenkins may have finished loading, its possible not all of the plugins were loaded. Unfortunately"
