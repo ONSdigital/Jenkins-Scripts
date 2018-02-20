@@ -35,11 +35,8 @@ JENKINS_DISK="${JENKINS_DISK:-2048M}"
 JENKINS_STABLE_WAR_URL="${JENKINS_STABLE_WAR_URL:-http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war}"
 JENKINS_LATEST_WAR_URL="${JENKINS_LATEST_WAR_URL:-http://mirrors.jenkins-ci.org/war/latest/jenkins.war}"
 
-# Jenkins will not start without this plugin
-DEFAULT_PLUGINS="https://updates.jenkins-ci.org/latest/matrix-auth.hpi"
-
 # Default private key
-SSH_PRIVATE_KEY='id_rsa'
+SSH_PRIVATE_KEY="${SSH_PRIVATE_KEY:-id_rsa}"
 
 # Parse options
 for i in `seq 1 $#`; do
@@ -76,8 +73,9 @@ for i in `seq 1 $#`; do
 			shift 2
 			;;
 		-k|--ssh-private-key)
-			[ -f "$SSH_PRIVATE_KEY" ] || INFO "$SSH_PRIVATE_KEY does not exist so we'll generate one"
 			SSH_PRIVATE_KEY="$2"
+
+			[ -f "$SSH_PRIVATE_KEY" ] || INFO "$SSH_PRIVATE_KEY does not exist so we'll generate one"
 			shift 2
 			;;
 		-K|--ssh-keyscan-host)
@@ -272,7 +270,7 @@ IFS=,
 
 cd jenkins_home/plugins
 
-for p in ${PLUGINS:-$DEFAULT_PLUGINS}; do
+for p in $PLUGINS; do
 	INFO "Downloading $p"
 
 	curl -LO "$p"
