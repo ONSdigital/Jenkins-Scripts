@@ -101,7 +101,7 @@ fi
 
 if [ ! -f plugin-list ] || ! diff -q plugin-list plugin-list.new; then
 	INFO Plugins have changed
-	[ -f plugin-list ] && diff -u plugin-list plugin-list.new
+	[ -f plugin-list ] && diff -u plugin-list plugin-list.new || :
 
 	INFO Updating plugins list
 
